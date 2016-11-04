@@ -18,6 +18,11 @@ public class appman : MonoBehaviour {
 	//firstscreen
 	public GameObject firstscreenObj;
 
+	public GameObject slidearea;
+	public GameObject locationOn;
+	public GameObject MapObj;
+
+
 
 	public void unlockphone()
 	{
@@ -44,7 +49,9 @@ public class appman : MonoBehaviour {
 	public void  logintoApp()
 	{
 		print("loggin into the app");
-
+		firstscreenObj.SetActive(false);
+		MapObj.SetActive(true);
+		slidearea.SetActive(true);
 	}
 
 

@@ -57,7 +57,17 @@ public class mapmanager : MonoBehaviour {
 	}
 	public void restAction()
 	{
+		if(!restBack.activeSelf)
+		{
+			restBack.SetActive(true);
+			//	print("turn on");
+		}
+		else
+		{
 
+			restBack.SetActive(false);
+			//	print("turn off");
+		}
 
 	}
 
