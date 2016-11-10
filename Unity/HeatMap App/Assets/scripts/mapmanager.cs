@@ -4,74 +4,61 @@ using UnityEngine.UI;
 
 public class mapmanager : MonoBehaviour {
 
+	//opening slider bar
 	public Button openslider;
+	public Animator sliderAnim;
+	public bool slideopen = false;
 
-	public Button bar;
-	public Button resturant;
-	public Button coffee;
-	public Button grocery;
-	public Button clubs;
-	public Button publicareas;
+	// toggle
+	public Toggle transmitOn;
+	public Animator outsidersAnim;
 
+	//toggle heatOn
+	public Toggle heatOn;
+	public GameObject heatLayerObj;
 
-	//barobjects
-	public GameObject barBack;
-	public GameObject barHeat;
-
-	//resturant
-	public GameObject restBack;
-	public GameObject restHeat;
-
-	//barobjects
-	public GameObject coffeeBack;
-	public GameObject coffeeHeat;
-
-	//resturant
-	public GameObject groceryBack;
-	public GameObject groceryHeat;
-
-	//barobjects
-	public GameObject clubBack;
-	public GameObject clubHeat;
-
-	//resturant
-	public GameObject publicBack;
-	public GameObject publicHeat;
-
-
-
-	public void barAction()
+	public void opensliderarea()
 	{
-		if(!barBack.activeSelf)
+		if(!slideopen)
 		{
-			barBack.SetActive(true);
-		//	print("turn on");
+			sliderAnim.ResetTrigger("close");
+			sliderAnim.SetTrigger("open");
+			slideopen = true;
 		}
 		else
 		{
-
-			barBack.SetActive(false);
-		//	print("turn off");
-		}
-
-	}
-	public void restAction()
-	{
-		if(!restBack.activeSelf)
-		{
-			restBack.SetActive(true);
-			//	print("turn on");
-		}
-		else
-		{
-
-			restBack.SetActive(false);
-			//	print("turn off");
+			sliderAnim.ResetTrigger("open");
+			sliderAnim.SetTrigger("close");
+			slideopen = false;
 		}
 
 	}
 
+	public void ToggleOn()
+	{
 
+		if(transmitOn.isOn)
+		{
+			outsidersAnim.enabled = true;
+		}
+		else
+		{
+			outsidersAnim.enabled = false;
+		}
+	}
 
+	public void ControlHeat()
+	{
+		if(heatOn.isOn)
+		{
+			heatLayerObj.SetActive(true);
+		}
+		else
+		{
+			heatLayerObj.SetActive(false);
+		}
 
+	}
+
+		
 }
